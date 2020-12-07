@@ -1,0 +1,4 @@
+gcc graph1.c -o graph1 -lm 
+./graph1   
+dot -Tpng gr1.txt -o gr1.png
+xdg-open gr1.png  

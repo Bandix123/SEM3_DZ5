@@ -1,0 +1,16 @@
+graph G {
+node1 [label = " 11 " ];
+node2 [label = " 22 " ];
+node3 [label = " 33 " ];
+node4 [label = " 44 " ];
+node5 [label = " 55 " ];
+node6 [label = " 66 " ];
+
+node2 -- node5; 
+node4 -- node4; 
+node5 -- node1; 
+node3 -- node4; 
+node2 -- node3; 
+node1 -- node2; 
+
+ } 
