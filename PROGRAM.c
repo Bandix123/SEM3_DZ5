@@ -59,14 +59,41 @@ fprintf(fp, "%s\n","graph G {" );
 fclose(fp);
 fp = fopen("finalgraph.txt","a");
 
-for (int i = 0; i < count2; i++)
-  for (int j = 0; j < count2; j++)
+for (int i = 0; i < count; i++)
+  for (int j = 0; j < count; j++){
     if ((cashe[i].number1 == cashe[j].number3)&&(cashe[i].number2 == cashe[j].number4)) {
-      fprintf(fp, "%d -- %d ;\n",cashe[i].number1,cashe[i].number2);
-      printf("%d -- %d \n",cashe[i].number1,cashe[i].number2);
-    }
-
-
+//      fprintf(fp, "%d -- %d ;\n",cashe[i].number1,cashe[i].number2);
+  break;
+  //    printf("%d -- %d \n",cashe[i].number1,cashe[i].number2);
+}else if ((cashe[i].number1 != cashe[j].number3)&&(cashe[i].number2 != cashe[j].number4)) {
+  if ((cashe[i].number1 != 0)&&(cashe[i].number2 != 0))
+    fprintf(fp, "%d -- %d ;\n",cashe[i].number1,cashe[i].number2);
+    break;
+}
+}
+//fprintf(fp, "\n___0____________0____ \n" );
+for (int i = 0; i < count; i++)
+  for (int j = 0; j < count; j++){
+    if ((cashe[i].number3 != cashe[j].number1)&&(cashe[i].number4 != cashe[j].number2)) {
+//  fprintf(fp, "%d -- %d ;\n",cashe[i].number1,cashe[i].number2);
+//    printf("%d -- %d \n",cashe[i].number1,cashe[i].number2);
+  if ((cashe[i].number3 != 0)&&(cashe[i].number4 != 0))
+    fprintf(fp, "%d -- %d ;\n",cashe[i].number3,cashe[i].number4);
+    break;
+}
+}
  fprintf(fp, "\n }" );
  fclose(fp);
+
+system("dot -Tpng gr1.txt -o gr1.png");
+system("dot -Tpng gr2.txt -o gr2.png");
+system("dot -Tpng finalgraph.txt -o finalgraph.png");
+
+
+system("xdg-open gr1.png ");
+system("xdg-open gr2.png ");
+system("xdg-open finalgraph.png ");
+
+system("rm cashe1.txt");
+system("rm cashe2.txt");
 }
